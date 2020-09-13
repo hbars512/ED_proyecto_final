@@ -10,6 +10,21 @@
     {% endif %}
   </head>
   <body>
-    <h1>Hello, {{ user.username }}!</h1>
+    <h1>Proyecto de Estructura de datos</h1>
+
+    <table>
+      <thead>
+        <td>u</td>
+        <td>v</td>
+      </thead>
+      <tbody>
+      {% for puente in grafo.puentes %}
+      <tr>
+        <td>{{puente['u']}}</td>
+        <td>{{puente['v']}}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>
