@@ -26,7 +26,6 @@
 
 </head>
 <body>
-    
 
     <!--CABEZERA-->
 
@@ -43,14 +42,15 @@
 
     <main>
         <div id="formulario1">
-            <form action="">
+          <form action="{{ url_for('bridges') }}" method="post" >
                 <label for=""> Nº Nodos: </label>
-                <input type="text" name="numNodos" id="numeroNodos">
+                <input type="text" name="num_nodos" id="numeroNodos">
                 <label for=""> Nº Aristas: </label>
-                <input type="text" name="numAristas" id="numeroAristas">
+                <input type="text" name="num_aristas" id="numeroAristas">
 
 
-                <button type="button" onclick="getDatos()">Enviar</button>
+                <button type="button" onclick="getDatos()">Graficar</button>
+                <input type="submit" name="calcular" id="calcular" value="Calcular">
                 <br>
                 <br>
             </form>
@@ -70,21 +70,21 @@
 
 
                 function getDatos() {
-                    
+
                     let srtNodos = document.getElementById("numeroNodos").value;
                     let srtAristas = document.getElementById("numeroAristas").value;
 
 
                     numNodos = parseInt(srtNodos);
 
-                    
+
                     misAristas = srtAristas.split(", ");
                     console.log(misAristas);
                     console.log(aristas);
 
 
 
-                    for(let i = 1; i <= numNodos; i++) {
+                    for(let i = 0; i < numNodos; i++) {
                         objetos.push({id: i, label: i.toString()});
                     }
 
@@ -133,8 +133,8 @@
         <h3>Desarrolladores</h3>
         <ul>
             <li>Noriega Vera, Brandom</li>
-            <li>Herbert</li>
-            <li>Andres</li>
+            <li>Arias Silva, Herbert</li>
+            <li>Maita, Andres</li>
         </ul>
     </footer>
 
