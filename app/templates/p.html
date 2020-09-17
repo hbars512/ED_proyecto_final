@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    {% if title %}
+    <title>{{ title }} - Microblog</title>
+    {% else %}
+    <title>Welcome to Microblog!</title>
+    {% endif %}
+  </head>
+  <body>
+    <h1>Proyecto de Estructura de datos</h1>
+
+    <table>
+      <thead>
+        <td>u</td>
+        <td>v</td>
+      </thead>
+      <tbody>
+      {% for puente in grafo.puentes %}
+      <tr>
+        <td>{{puente['u']}}</td>
+        <td>{{puente['v']}}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

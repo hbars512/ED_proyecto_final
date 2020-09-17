@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finfing Bridges</title>
+
+
+    <!--JAVASCRIPT-->
+    <script src="{{ url_for('static', filename='js/bridge.js') }}"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script> 
+
+
+    <!--Estilos CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+
+    <!--Fuentes-->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+
+
+    <!--Font-Awesome-->
+    <script src="https://kit.fontawesome.com/804f7da927.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+    
+
+    <!--CABEZERA-->
+
+    <header>
+        <nav id="navbar">
+            <div id="navegation" class="container">
+              <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/unmsm.png') }}" alt="LogoUNMSM"></a>
+                <h2>Faculdad de Ingenieria de Sistemas e Informatica</h2>
+            </div>
+        </var>
+    </header>
+
+    <!--PRINCIPAL-->
+
+    <main>
+        <div id="formulario1">
+            <form action="">
+                <label for=""> Nº Nodos: </label>
+                <input type="text" name="numNodos" id="numeroNodos">
+                <label for=""> Nº Aristas: </label>
+                <input type="text" name="numAristas" id="numeroAristas">
+
+
+                <button type="button" onclick="getDatos()">Enviar</button>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div id="formulario2">
+            <form action="">
+                <label for=""> u: </label>
+                <input type="text" name="primerNodo" id="nodo1">
+                <label for=""> v: </label>
+                <input type="text" name="segundoNodo" id="nodo2">
+                <button type="button" onclick="getConexion()">Enviar</button>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div id="contenedorPrincipal">
+            <div id="mynetwork">
+                <!--AQUI SE LE ASOCIARA EL CODIGO JAVASCRIPT-->
+            </div>
+            <script type="text/javascript">
+
+
+                let numNodos, misAristas;
+                //let contador = 1;
+
+                let objetos = new Array();
+                let aristas = new Array();
+
+
+                function getDatos() {
+                    
+                    let srtNodos = document.getElementById("numeroNodos").value;
+                    let srtAristas = document.getElementById("numeroAristas").value;
+
+
+                    numNodos = parseInt(srtNodos);
+
+                    
+                    misAristas = srtAristas.split(", ");
+                    console.log(misAristas);
+                    console.log(aristas);
+
+
+
+                    for(let i = 1; i <= numNodos; i++) {
+                        objetos.push({id: i, label: i.toString()});
+                    }
+
+                    console.log(numNodos);
+                    //console.log(numAristas);
+
+                    //formando mis aristas
+                    for(let i = 0; i < misAristas.length; i++) {
+                        let arr = misAristas[i];
+                        let arrr = arr.split("-");
+                        aristas.push({from: arrr[0], to: arrr[1]});
+                    }
+
+
+
+                    var nodes = new vis.DataSet(objetos);
+
+                    var edges = new vis.DataSet(aristas);
+
+                    // create a network
+                    var container = document.getElementById('mynetwork');
+                    var data = {
+                        nodes: nodes,
+                        edges: edges
+                    };
+                    var options = {};
+                    var network = new vis.Network(container, data, options);
+
+                }
+
+
+            </script>
+
+            <div id="pseudocodigo">
+                <h2>Pseudocodigo</h2>
+                <img src="{{ url_for('static', filename='images/bridges.png') }}" alt="Bridges">
+            </div>
+        </div>
+        <div id="resultadosw">
+
+        </div>
+    </main>
+
+    <!--PIE DE PAGINA-->
+    <footer>
+        <h3>Desarrolladores</h3>
+        <ul>
+            <li>Noriega Vera, Brandom</li>
+            <li>Herbert</li>
+            <li>Andres</li>
+        </ul>
+    </footer>
+
+
+</body>
+</html>

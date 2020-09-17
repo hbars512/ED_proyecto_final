@@ -1,0 +1,165 @@
+/*Estilos generales*/
+html, body {
+    height: 100%;
+}
+
+/*Modificar el modelo de cajas de CSS*/
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/*Resetear margenes y padding*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.09rem;
+}
+
+/*centrar elementos en pantalla*/
+.container {
+    margin: 0 auto;
+}
+
+
+
+
+
+/*ESTILOS GENERALES DE LOS TEXTOS*/
+h2 {
+	font-size: 1.45rem;
+	margin-bottom: 20px;
+}
+p {
+	line-height: 1.8;
+	padding-right: 1em;
+	margin-bottom: 25px;
+}
+
+/*ESTILOS DE LA CABEZERA*/
+
+/*ESTILOS DE LOS CONTENIDOS*/
+
+/*BARRA DE NAVEGACION*/
+#navegation {
+	display: flex;
+	justify-content: space-between;
+}
+#main-nav {
+	display: flex;
+	list-style: none;
+	font-family: 'Lato', sans-serif;
+}
+#main-nav li a {
+	color: #fff;
+	text-decoration: none;
+	padding: 25px 0.9em;
+	display: inline-block;
+}
+
+.container {
+	width: 80%;
+}
+
+
+a img {
+	width: 70%;
+	margin: 25px 0 0 120px;
+}
+
+#facultad {
+	margin: 20px 0px 20px 186px;
+	font-size: 2.8em;
+	color: #91910e;
+	padding: 25px 1em;
+}
+
+/*MAIN*/
+
+main {
+	
+}
+
+#enlaces {
+	display: flex;
+	justify-content: space-between;
+}
+
+#enlaces a {
+	background-color: #9f9faa;
+	margin: 20px 2em;
+	padding: 20px 3em;
+	font-size: 1.5em;
+	text-decoration: none;
+	color: #2F4F4F;
+	border: solid 1px;
+}
+
+#integrantes {
+	display: block;
+}
+
+#integrantes h2 , ul{
+	text-align: center;
+}
+
+#integrantes ul {
+	margin: 0 0 0 0;
+}
+
+/*ESTILOS PARA BRIDGES*/
+
+#navegation a {
+	max-width: 600px;
+}
+
+#navegation h2 {
+	font-size: 2.5em;
+	padding-top: 40px;
+	color: #808099;
+	text-align: center;
+}
+
+#contenedorPrincipal {
+	width: 90%;
+	display: flex;
+}
+
+#mynetwork {
+	max-width: 900px;
+	height: 500px;
+	border: 1px solid #9f9;
+	margin: 30px 40px;
+	flex-basis: 60%;
+}
+
+#pseudocodigo {
+	flex-basis: 40%;
+	max-width: 600px;
+	margin: 30px 0px 0px 0px;
+}
+
+
+/*PIE DE PAGINA*/
+footer {
+	width: 80%;
+	display: block;
+}
+
+footer h3 {
+	margin-left: 90px;
+}
+
+ul {
+	float: left;
+	margin-left: 90px;
+	text-align: inherit;
+	margin-top: 20px;
+}

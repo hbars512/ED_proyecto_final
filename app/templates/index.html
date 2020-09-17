@@ -1,30 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    {% if title %}
-    <title>{{ title }} - Microblog</title>
-    {% else %}
-    <title>Welcome to Microblog!</title>
-    {% endif %}
-  </head>
-  <body>
-    <h1>Proyecto de Estructura de datos</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de Grafos</title>
 
-    <table>
-      <thead>
-        <td>u</td>
-        <td>v</td>
-      </thead>
-      <tbody>
-      {% for puente in grafo.puentes %}
-      <tr>
-        <td>{{puente['u']}}</td>
-        <td>{{puente['v']}}</td>
-      </tr>
-      {% endfor %}
-      </tbody>
-    </table>
-  </body>
+
+    <!--Estilos CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" type="text/css" media="all">
+
+    <!--Fuentes-->
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+
+
+</head>
+<body>
+    
+
+    <!--CABEZERA-->
+    <header>
+        <nav id="navbar">
+            <div id="navegation" class="container">
+              <a href="{{url_for('index')}}"><img src="{{ url_for('static', filename='images/unmsm.png') }}" alt="Logo San Marcos"></a>
+            </div>
+            <h2 id="facultad">
+                Faculdad de Ingenieria de Sistemas e Informatica
+            </h2>
+        </nav>
+    </header>
+
+    <!--PRINCIPAL-->
+
+    <main>
+        <div class="container">
+            <div id="enlaces">
+              <a href="{{ url_for('bridges') }}" type="button">Finding Bridges</a>
+                <a href="#" type="button">     Ciclos     </a>
+            </div>
+            <div id="integrantes">
+                <h2>Desarrolladores:</h2>
+                <ul>
+                    <li>Noriega Vera Brandom</li>
+                    <li>Herber Arias</li>
+                    <li>Andres</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+
+</body>
 </html>
