@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finfing Bridges</title>
+    <title>Ciclos en grafos</title>
 
 
     <!--JAVASCRIPT-->
@@ -32,7 +32,7 @@
     <header>
         <nav id="navbar">
             <div id="navegation" class="container">
-              <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/unmsm.png') }}" alt="LogoUNMSM"></a>
+                <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/unmsm.png') }}" alt="LogoUNMSM"></a>
                 <h2>Faculdad de Ingenieria de Sistemas e Informatica</h2>
             </div>
         </var>
@@ -42,15 +42,11 @@
 
     <main>
         <div id="formulario1">
-          <form action="{{ url_for('bridges') }}" method="post" >
+            <form action="">
                 <label for=""> Nº Nodos: </label>
-                <input
-                  type="text" name="num_nodos" id="numeroNodos"
-                  value="{% if numero_nodos %}{{ numero_nodos }}{% endif %}">
-                <label for="num_aristas"> Aristas: </label>
-                <input
-                  type="text" name="num_aristas" id="numeroAristas"
-                  value="{% if ar %}{{ ar }}{% endif %}">
+                <input type="text" name="num_nodos" id="numeroNodos" value="{% if n_nodos %} n_nodos {% endif %}">
+                <label for=""> Aristas: </label>
+                <input type="text" name="num_aristas" id="numeroAristas" value="{% if ar %} ar {% endif %}">
 
                 <button type="button" onclick="getDatos()">Graficar</button>
                 <input type="submit" name="calcular" id="calcular" value="Calcular">
@@ -118,19 +114,19 @@
 
                 }
 
-
             </script>
 
             <div id="pseudocodigo">
                 <h2>Pseudocodigo</h2>
-                <img src="{{ url_for('static', filename='images/bridges.png') }}" alt="Bridges">
+                <img src="{{ url_for('static', filename='images/ciclo.png') }}" alt="Ciclo">
             </div>
         </div>
         <div id="resultadosw" class="results">
-            <p><b>Puentes del grafo:</b></p>
-            {% for puente in grafo.puentes %}
-            <p><b>{{ puente['u'] }}</b> - <b>{{ puente['v'] }}</b></p>
-            {% endfor %}
+            <p><b>Resultado:</b></p>
+            {% if n_ciclos %}
+            <p><b>{{ n_ciclos }}</b> de tamaño <b>{{ ciclos }}</b></p>
+            {% endif %}
+
         </div>
     </main>
 

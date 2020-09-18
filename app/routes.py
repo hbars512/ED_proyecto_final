@@ -13,10 +13,10 @@ def index():
 def bridges():
     grafo1 = None
     if request.method == 'POST':
-        nodos = int(request.form['num_nodos'])
+        n_nodos = int(request.form['num_nodos'])
         aristas = request.form['num_aristas']
 
-        grafo1 = GraphBridge(nodos)
+        grafo1 = GraphBridge(n_nodos)
         for arista in aristas.split(', '):
             nodos = []
             for nodo in arista.split('-'):
@@ -24,5 +24,17 @@ def bridges():
             grafo1.addEdge(nodos[0], nodos[1])
 
         grafo1.bridge()
+        return render_template(
+            'bridge.html',
+            title='Proyecto ED',
+            grafo=grafo1,
+            ar=aristas,
+            numero_nodos=n_nodos
+        )
 
     return render_template('bridge.html', title='Proyecto ED', grafo=grafo1)
+
+
+@app.route('/cycles', methods=['GET', 'POST'])
+def cycles():
+    return render_template('cycles.html')
