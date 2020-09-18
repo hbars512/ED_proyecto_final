@@ -42,11 +42,16 @@
 
     <main>
         <div id="formulario1">
-            <form action="">
-                <label for=""> Nº Nodos: </label>
-                <input type="text" name="num_nodos" id="numeroNodos" value="{% if n_nodos %} n_nodos {% endif %}">
-                <label for=""> Aristas: </label>
-                <input type="text" name="num_aristas" id="numeroAristas" value="{% if ar %} ar {% endif %}">
+          <form action="{{ url_for('cycles') }}" method="POST">
+                <input
+                  type="text" name="num_nodos" id="numeroNodos" placeholder="Número de nodos"
+                  value="{% if numero_nodos %}{{numero_nodos}}{% endif %}" width="50">
+                <input
+                  type="text" name="n_ciclos" id="numeroCiclos" placeholder="Número de ciclos"
+                  value="{% if n_ciclos %}{{n_ciclos}}{% endif %}" width="50">
+                <input
+                  type="text" name="aristas" id="numeroAristas" placeholder="Aristas"
+                  value="{% if aristas %}{{aristas}}{% endif %}" width="50">
 
                 <button type="button" onclick="getDatos()">Graficar</button>
                 <input type="submit" name="calcular" id="calcular" value="Calcular">
@@ -123,8 +128,10 @@
         </div>
         <div id="resultadosw" class="results">
             <p><b>Resultado:</b></p>
-            {% if n_ciclos %}
-            <p><b>{{ n_ciclos }}</b> de tamaño <b>{{ ciclos }}</b></p>
+            {% if num_ciclos %}
+            <p><b>{{ num_ciclos }}</b> ciclos de tamaño <b>{{ ciclos }}</b></p>
+            {% else %}
+            <p><b>0</b> ciclos de tamaño <b>{{ ciclos }}</b></p>
             {% endif %}
 
         </div>
