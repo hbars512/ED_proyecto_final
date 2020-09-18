@@ -192,3 +192,23 @@ ul {
 .results p {
   text-align: center;
 }
+
+.formfila {
+  width: 720px;
+  padding: 5px;
+}
+
+.formfila #numeroAristas {
+  width: 400px;
+  height: 30px;
+}
+
+.formfila #numeroNodos {
+  width: 150px;
+  height: 30px;
+}
+
+.formfila #numeroCiclos {
+  width: 150px;
+  height: 30px;
+}

@@ -60,16 +60,3 @@ class GraphCycles:
             marked[i] = True
 
         return int(count/2)
-#
-# # main :
-# graph = [[0, 1, 0, 1, 0],
-#          [1, 0, 1, 0, 1],
-#          [0, 1, 0, 1, 0],
-#          [1, 0, 1, 0, 1],
-#          [0, 1, 0, 1, 0]]
-#
-# relol = CyclesCount(5)
-#
-# n = 4
-# print("Total cycles of length ", n, " are ", relol.countCycles(graph, n))
-# this code is contributed by Shivani Ghughtyal

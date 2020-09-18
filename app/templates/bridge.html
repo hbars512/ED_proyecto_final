@@ -128,6 +128,7 @@
         </div>
         <div id="resultadosw" class="results">
             <p><b>Puentes del grafo:</b></p>
+            <p><b>Tiempo de ejecucion: </b>{{ elapsed_time }}</p>
             {% for puente in grafo.puentes %}
             <p><b>{{ puente['u'] }}</b> - <b>{{ puente['v'] }}</b></p>
             {% endfor %}

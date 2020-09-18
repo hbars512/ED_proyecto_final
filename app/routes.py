@@ -1,8 +1,9 @@
-from flask import render_template, url_for, request, redirect
+from flask import render_template, url_for, request
 from app import app
 from app.graph_bridge import GraphBridge
 from app.graph_cycles import GraphCycles
 import numpy as np
+from time import time
 
 
 @app.route('/')
@@ -18,6 +19,7 @@ def bridges():
         n_nodos = int(request.form['num_nodos'])
         aristas = request.form['num_aristas']
 
+        start_time = time()
         grafo1 = GraphBridge(n_nodos)
         for arista in aristas.split(', '):
             nodos = []
@@ -26,12 +28,14 @@ def bridges():
             grafo1.addEdge(nodos[0], nodos[1])
 
         grafo1.bridge()
+        elapsed_time = time() - start_time
         return render_template(
             'bridge.html',
             title='Proyecto ED',
             grafo=grafo1,
             ar=aristas,
-            numero_nodos=n_nodos
+            numero_nodos=n_nodos,
+            elapsed_time=elapsed_time
         )
 
     return render_template('bridge.html', title='Proyecto ED', grafo=grafo1)
@@ -58,8 +62,10 @@ def cycles():
                     graph[i][j] = 1
                     graph[j][i] = 1
 
+        start_time = time()
         grafo1 = GraphCycles(n_nodos, graph)
         num_ciclos = grafo1.count_cycles(n_ciclos)
+        elapsed_time = time() - start_time
 
         return render_template(
             'cycles.html',
@@ -67,7 +73,8 @@ def cycles():
             aristas=aristas,
             n_ciclos=n_ciclos,
             num_ciclos=num_ciclos,
-            numero_nodos=n_nodos
+            numero_nodos=n_nodos,
+            elapsed_time=elapsed_time
         )
 
     return render_template('cycles.html')
