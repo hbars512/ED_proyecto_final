@@ -123,8 +123,11 @@
                 <img src="{{ url_for('static', filename='images/bridges.png') }}" alt="Bridges">
             </div>
         </div>
-        <div id="resultadosw">
-
+        <div id="resultadosw" class="results">
+            <p><b>Los puentes se establecen entre:</b></p>
+            {% for puente in grafo.puentes %}
+            <p><b>{{ puente['u'] }}</b> - <b>{{ puente['v'] }}</b></p>
+            {% endfor %}
         </div>
     </main>
 
